@@ -54,18 +54,31 @@ function register(){
   showLogin();
 }
 
-function login(){
+function login()
+{
   let u = loginUser.value.trim();
   let p = loginPass.value.trim();
 
-  let saved = localStorage.getItem("user_"+u);
-
-  if(saved === p){
-    localStorage.setItem("currentUser", u);
-    showApp(u);
-  } else {
-    toast("Invalid login");
+  if(!u || !p){
+    toast("Please enter username and password");
+    return;
   }
+
+  let saved = localStorage.getItem("user_" + u);
+
+  if(!saved){
+    toast("Invalid username");
+    return;
+  }
+
+  if(saved !== p){
+    toast("Invalid password");
+    return;
+  }
+
+  localStorage.setItem("currentUser", u);
+  showApp(u);
+  toast("Login successful");
 }
 
 function resetPass(){
