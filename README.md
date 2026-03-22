@@ -38,4 +38,4 @@ It includes authentication, task management, and local storage support.
 
 ## Author
 
-Sathish
+Sathishwaran P
