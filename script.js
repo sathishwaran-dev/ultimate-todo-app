@@ -67,18 +67,18 @@ function login()
   let saved = localStorage.getItem("user_" + u);
 
   if(!saved){
-    toast("Invalid username");
-    return;
-  }
+  toast("Invalid username", "error");
+  return;
+}
 
-  if(saved !== p){
-    toast("Invalid password");
-    return;
-  }
+if(saved !== p){
+  toast("Invalid password", "error");
+  return;
+}
 
-  localStorage.setItem("currentUser", u);
-  showApp(u);
-  toast("Login successful");
+localStorage.setItem("currentUser", u);
+showApp(u);
+toast("Login successful", "success");
 }
 
 function resetPass(){
