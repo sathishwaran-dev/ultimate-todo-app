@@ -198,11 +198,23 @@ function renderHistory(){
 }
 
 /* TOAST */
-function toast(msg){
-  let t=document.getElementById("toast");
-  t.innerText=msg;
-  t.style.display="block";
-  setTimeout(()=>t.style.display="none",2000);
+function toast(msg, type){
+  let t = document.getElementById("toast");
+  t.innerText = msg;
+
+  t.className = "show"; // reset
+
+  if(type === "success"){
+    t.style.background = "green";
+  } else if(type === "error"){
+    t.style.background = "red";
+  } else {
+    t.style.background = "#333";
+  }
+
+  setTimeout(() => {
+    t.classList.remove("show");
+  }, 2000);
 }
 
 /* DARK */
